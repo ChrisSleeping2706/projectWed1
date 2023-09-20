@@ -1,0 +1,244 @@
+body {
+    font-family: 'Pacifico', cursive;
+    /* 1rem = 18px */
+    /* font-size: 12px; */
+    /* không khai báo font-size thì mặc định font sẽ là 16px */
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    margin: 0 115px;
+    margin-bottom: 10px;
+}
+
+.header__logo {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    align-items: center;
+    width: 30%;
+}
+
+.header__logo img {
+    width: 15%;
+}
+
+.header__textLogo {
+    margin: 0 8px;
+}
+
+.header__textLogo h3 {
+    margin: 0px 0px 0px 0px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: 'Pacifico', cursive;
+}
+
+.header__textLogo span {
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    left: 245px;
+    top: 50px;
+}
+
+.header__navigation {
+    width: 60%;
+}
+
+.header__navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header__navigation ul li {
+    margin: 0 70px;
+}
+
+.header__navigation ul li a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Pacifico', cursive;
+}
+
+.header__account {
+    width: 10%;
+    display: flex;
+}
+
+.header__account i {
+    font-size: 26px;
+    margin: 0 20px;
+}
+
+/* carousel */
+.carousel__img {
+    padding-bottom: 10px;
+}
+
+.carousel__img img {
+    width: 100%;
+    height: 80vh;
+}
+
+/* product */
+
+.product {
+    padding: 20px 0;
+}
+
+.product__container {
+    margin: 0 115px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product__card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 20%;
+    margin: 10px;
+    /* Điều chỉnh kích thước card tùy ý */
+}
+
+.product__card img {
+    width: 100%;
+    max-height: 200px;
+    /* Điều chỉnh kích thước ảnh tùy ý */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product__title span {
+    color: gray;
+    text-transform: uppercase;
+}
+
+.product__title h5 {
+    font-size: 16px;
+}
+
+.product__title h4 {
+    color: #9d4040;
+    font-size: 16px
+}
+
+.product__cart button {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.product__cart:hover button i {
+    transition: all .5s;
+}
+
+.product__cart:hover button {
+    border-color: white;
+    background-color: black;
+    color: white;
+}
+
+.product__cart:hover button i {
+    color: white !important;
+}
+
+.product__search {
+    width: 100%;
+    text-align: center;
+}
+
+.product__search #search {
+    border-radius: 20px;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.search__button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.search__button:hover {
+    border-color: white;
+    background-color: black;
+    color: white;
+}
+
+/* footer */
+/* CSS cho phần footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo img {
+    width: 100px;
+    /* Điều chỉnh kích thước logo tùy ý */
+}
+
+.footer-links ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li,
+.footer-social li {
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* CSS cho biểu tượng mạng xã hội (điều chỉnh kích thước tùy ý) */
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
