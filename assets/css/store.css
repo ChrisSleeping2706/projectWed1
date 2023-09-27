@@ -273,3 +273,28 @@ header {
     align-items: center;
     width: 30%;
 }
+
+/* nút quay về đầu trang */
+/* CSS của bạn (ví dụ: styles.css) */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: gray;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+#scrollTopBtn i {
+    position: relative;
+    top: 1px;
+}
+
+#scrollTopBtn:hover {
+    background-color: #282828f0;
+}

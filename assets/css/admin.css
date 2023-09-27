@@ -1,0 +1,148 @@
+body {
+    font-family: 'Pacifico', cursive;
+    /* 1rem = 18px */
+    /* font-size: 12px; */
+    /* không khai báo font-size thì mặc định font sẽ là 16px */
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 120px;
+    padding-bottom: 5px;
+}
+
+.header__logo {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    align-items: center;
+    width: 30%;
+}
+
+.header__logo img {
+    width: 15%;
+}
+
+.header__textLogo {
+    margin: 0 8px;
+}
+
+.header__textLogo h3 {
+    margin: 0px 0px 0px 0px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: 'Pacifico', cursive;
+}
+
+.header__textLogo span {
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    left: 245px;
+    top: 45px;
+    color: gray;
+}
+
+.header__navigation {
+    width: 60%;
+}
+
+.header__navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header__navigation ul li {
+    margin: 0 70px;
+}
+
+.header__navigation ul li a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Pacifico', cursive;
+}
+
+.header__account {
+    width: 10%;
+    display: flex;
+}
+
+.header__account i {
+    font-size: 26px;
+    margin: 0 20px;
+}
+
+/* product management */
+.product-management {
+    margin-top: 180px;
+    height: 100%;
+    /* display: none; */
+}
+
+.product-container {
+    margin: 0 115px;
+}
+
+.product-table {
+    width: 100%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.product-table th {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.product-table td {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* users management */
+.users-management {
+    margin-top: 180px;
+    height: 100%;
+
+}
+
+.users-container {
+    margin: 0 115px;
+}
+
+.users-table {
+    width: 100%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.users-table th {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.users-table td {
+    border: 1px solid black;
+    border-radius: 10px;
+}
