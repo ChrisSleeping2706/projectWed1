@@ -19,6 +19,7 @@ header {
     background-color: #fff;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    z-index: 1000000000000000;
 }
 
 .header__container {
@@ -35,6 +36,7 @@ header {
     cursor: pointer;
     align-items: center;
     width: 30%;
+    text-decoration: none;
 }
 
 .header__logo img {
@@ -50,6 +52,7 @@ header {
     font-size: 25px;
     text-transform: uppercase;
     font-family: 'Pacifico', cursive;
+    color: #333;
 }
 
 .header__textLogo span {
@@ -91,6 +94,10 @@ header {
     margin: 0 20px;
 }
 
+.header__account .account a {
+    color: black;
+}
+
 /* carousel */
 .carousel {
     margin-top: 85px;
@@ -115,9 +122,14 @@ header {
 
 .product__container {
     margin: 0 115px;
+
+}
+
+.product__box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .product__card {

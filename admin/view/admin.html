@@ -3,118 +3,211 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin</title>
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
+    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 
 <body>
-    <!-- header -->
-    <header>
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="logo">
-                <div class="header__textLogo">
-                    <h3>underdog</h3>
-                    <span>running store</span>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <button>
+                        <span class="title">SHOE SHOP</span>
+                    </button>
+                </li>
+
+                <li id="btn-product">
+                    <button>
+                        <span class="icon">
+                            <i class="fa-solid fa-shop"></i>
+                        </span>
+                        <span class="title">product</span>
+                    </button>
+                </li>
+
+                <li id="btn-user">
+                    <button>
+                        <span class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </button>
+                </li>
+
+                <li>
+                    <a href="../../store/view/store.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-store"></i>
+                        </span>
+                        <span class="title">Store</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../account/view/signIn.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
                 </div>
             </div>
-            <div class="header__navigation">
-                <ul>
-                    <li class="navigation__home"><a href="#">home</a></li>
-                    <li class="navigation__products"><a href="#">products</a></li>
-                </ul>
-            </div>
-            <div class="header__account">
-                <div class="pay">
-                    <i class="fa-solid fa-cart-shopping"></i>
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
                 </div>
-                <div class="account">
-                    <i class="fa-solid fa-user"></i>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">80</div>
+                        <div class="cardName">Sales</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">284</div>
+                        <div class="cardName">Comments</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-message"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">$7,842</div>
+                        <div class="cardName">Earning</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
                 </div>
             </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="detailsProduct" id="detailsProduct">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Orders</h2>
+                        <button href="#" class="btn-addProduct">add product</button>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Mô Tả</th>
+                                <th>Giá</th>
+                                <th>Hãng</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tableProduct"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="detailsUser" id="detailsUser" style="display: none;">
+                <div class="recentUser">
+                    <div class="cardHeaderUser">
+                        <h2>USER</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>account</th>
+                                <th>password</th>
+                                <th>mail</th>
+                                <th>MSSV</th>
+                                <th>positionJob</th>
+                                <th>xác nhận đơn hàng</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tableUser"></tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
-    </header>
 
-    <!-- product management -->
-    <section class="product-management">
-        <div class="product-container">
-            <table class="product-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Mô Tả</th>
-                        <th>Giá</th>
-                        <th>Hãng</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Sản Phẩm 1</td>
-                        <td>Mô tả sản phẩm 1.</td>
-                        <td>$10</td>
-                        <td>jordan</td>
-                        <td>htpps//...</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Sản Phẩm 2</td>
-                        <td>Mô tả sản phẩm 2.</td>
-                        <td>$10</td>
-                        <td>nike</td>
-                        <td>htpps//...</td>
-                    </tr>
-                    <!-- Thêm các hàng sản phẩm khác ở đây -->
-                </tbody>
-            </table>
+        <!-- form thêm sản phẩm -->
+        <div class="formProduct_container" style="display: none;">
+            <div class="formProduct_box">
+                <i class="fa-solid fa-circle-xmark" style="color: #000000;"></i>
+                <div class="formProduct_text">
+                    <h3>Thêm sản phẩm</h3>
+                </div>
+                <form class="formProduct">
+                    <label for="product-name">Tên Sản Phẩm:</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                    <br>
+                    <label for="product-price">Giá:</label>
+                    <input type="number" id="product-price" name="product-price" required>
+                    <br>
+                    <label for="product-brand">Hãng:</label>
+                    <input type="text" id="product-brand" name="product-brand" required>
+                    <br>
+                    <label for="product-image">Link Ảnh:</label>
+                    <input type="text" id="product-image" name="product-image" required>
+                    <br>
+                    <label for="product-description">Mô Tả:</label>
+                    <textarea id="product-description" name="product-description" rows="4" required></textarea>
+                    <br>
+                    <button type="submit">Thêm</button>
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
 
-
-    <!-- users management -->
-    <section class="users-management">
-        <div class="users-container">
-            <table class="users-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Account</th>
-                        <th>Password</th>
-                        <th>Xác nhận hàng </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Huy</td>
-                        <td>Huybang1144</td>
-                        <td>1</td>
-                        <td>thành công</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Sản Phẩm 2</td>
-                        <td>Mô tả sản phẩm 2.</td>
-                        <td>$10</td>
-                        <td>đang chờ</td>
-                    </tr>
-                    <!-- Thêm các hàng sản phẩm khác ở đây -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-
+    <!-- =========== Scripts =========  -->
+    <script src="../controller/helper.js"></script>
+    <script type="module" src="../controller/admin.js"></script>
 </body>
 
 </html>

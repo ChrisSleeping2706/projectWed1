@@ -1,148 +1,686 @@
-body {
-    font-family: 'Pacifico', cursive;
-    /* 1rem = 18px */
-    /* font-size: 12px; */
-    /* không khai báo font-size thì mặc định font sẽ là 16px */
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
-}
-
+/* =============== Globals ============== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-    position: fixed;
-    top: 0;
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #2a2185;
+  border-left: 10px solid #2a2185;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: #fff;
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li button {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background-color: inherit;
+}
+
+.navigation ul li:hover button,
+.navigation ul li.hovered button {
+  color: #2a2185;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+
+.navigation ul li button .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li button .icon i {
+  font-size: 1.75rem;
+}
+
+.navigation ul li button .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.navigation ul li button .title:nth-child(1) {
+  left: 60px;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover button::before,
+.navigation ul li.hovered button::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+
+.navigation ul li:hover button::after,
+.navigation ul li.hovered button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+
+/* a */
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background-color: inherit;
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: #2a2185;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon i {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.navigation ul li a .title:nth-child(1) {
+  left: 60px;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid #999;
+}
+
+.search label i {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======================= Cards ====================== */
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #2a2185;
+}
+
+.cardBox .card .cardName {
+  color: #999;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+  font-size: 3.5rem;
+  color: #999;
+}
+
+.cardBox .card:hover {
+  background: #2a2185;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: #fff;
+}
+
+/* ================== Order Details List ============== */
+.detailsProduct {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.detailsProduct .recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.detailsProduct .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardHeader h2 {
+  font-weight: 600;
+  color: #2a2185;
+}
+
+.cardHeader .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: #2a2185;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.detailsProduct table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.detailsProduct table thead td {
+  font-weight: 600;
+}
+
+.detailsProduct .recentOrders table tr {
+  color: #222;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detailsProduct .recentOrders table tr:last-child {
+  border-bottom: none;
+}
+
+.detailsProduct .recentOrders table tbody tr:hover {
+  background: #2a2185;
+  color: #fff;
+}
+
+.detailsProduct .recentOrders table tr td {
+  padding: 10px;
+  text-align: center;
+}
+
+.detailsProduct .recentOrders table tr td:last-child {
+  text-align: center;
+}
+
+.detailsProduct .recentOrders table tr td:nth-child(2) {
+  text-align: center;
+}
+
+.detailsProduct .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+}
+
+#tableProduct img {
+  width: 100px;
+}
+
+/* css form add product */
+.btn-addProduct {
+  background-color: #2a2185;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 150px;
+  font-size: 17px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.formProduct_box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  padding-top: 50px;
+  border-radius: 5px;
+  height: 500px;
+  width: 500px;
+}
+
+.formProduct_container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 965px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+.formProduct_box i {
+  font-size: 35px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.formProduct_text {
+  text-align: center;
+}
+
+.formProduct label {
+  display: block;
+}
+
+.formProduct input {
+  width: 100%;
+}
+
+.formProduct textarea {
+  width: 100%;
+}
+
+.formProduct button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  margin-top: 20px;
+  transition: all .2s;
+}
+
+.formProduct button:disabled {
+  pointer-events: none;
+}
+
+.formProduct button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.formProduct button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.detailsUser {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.detailsUser .recentUser {
+  position: relative;
+  display: grid;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.cardHeaderUser h2 {
+  font-weight: 600;
+  color: #2a2185;
+  text-align: center;
+}
+
+.cardHeaderUser .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: #2a2185;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.detailsUser table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.detailsUser table thead td {
+  font-weight: 600;
+}
+
+.detailsUser .recentUser table tr {
+  color: #222;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detailsUser .recentUser table tr:last-child {
+  border-bottom: none;
+}
+
+.detailsUser .recentUser table tbody tr:hover {
+  background: #2a2185;
+  color: #fff;
+}
+
+.detailsUser .recentUser table tr td {
+  padding: 10px;
+  text-align: center;
+}
+
+.detailsUser .recentUser table tr td:last-child {
+  text-align: center;
+}
+
+.detailsUser .recentUser table tr td:nth-child(2) {
+  text-align: center;
+}
+
+.detailsUser .recentUser table tr td:nth-child(3) {
+  text-align: center;
+}
+
+#tableUser button {
+  background-color: #388644;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 170px;
+  font-size: 17px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+#tableUser button:hover {
+  background-color: #075a14;
+}
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  .navigation {
+    left: -300px;
+  }
+
+  .navigation.active {
+    width: 300px;
     left: 0;
-    background-color: #fff;
+  }
+
+  .main {
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    left: 0;
+  }
+
+  .main.active {
+    left: 300px;
+  }
+
+  .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.header__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 120px;
-    padding-bottom: 5px;
+@media (max-width: 768px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .recentOrders {
+    overflow-x: auto;
+  }
+
+  .status.inProgress {
+    white-space: nowrap;
+  }
 }
 
-.header__logo {
-    display: flex;
-    justify-content: flex-start;
-    cursor: pointer;
-    align-items: center;
-    width: 30%;
-}
+@media (max-width: 480px) {
+  .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-.header__logo img {
-    width: 15%;
-}
+  .cardHeader h2 {
+    font-size: 20px;
+  }
 
-.header__textLogo {
-    margin: 0 8px;
-}
+  .user {
+    min-width: 40px;
+  }
 
-.header__textLogo h3 {
-    margin: 0px 0px 0px 0px;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
-}
-
-.header__textLogo span {
-    position: absolute;
-    font-family: 'Pacifico', cursive;
-    left: 245px;
-    top: 45px;
-    color: gray;
-}
-
-.header__navigation {
-    width: 60%;
-}
-
-.header__navigation ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.header__navigation ul li {
-    margin: 0 70px;
-}
-
-.header__navigation ul li a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
-}
-
-.header__account {
-    width: 10%;
-    display: flex;
-}
-
-.header__account i {
-    font-size: 26px;
-    margin: 0 20px;
-}
-
-/* product management */
-.product-management {
-    margin-top: 180px;
-    height: 100%;
-    /* display: none; */
-}
-
-.product-container {
-    margin: 0 115px;
-}
-
-.product-table {
+  .navigation {
     width: 100%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-}
+    left: -100%;
+    z-index: 1000;
+  }
 
-.product-table th {
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.product-table td {
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-/* users management */
-.users-management {
-    margin-top: 180px;
-    height: 100%;
-
-}
-
-.users-container {
-    margin: 0 115px;
-}
-
-.users-table {
+  .navigation.active {
     width: 100%;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-}
+    left: 0;
+  }
 
-.users-table th {
-    border: 1px solid black;
-    border-radius: 10px;
-}
+  .toggle {
+    z-index: 10001;
+  }
 
-.users-table td {
-    border: 1px solid black;
-    border-radius: 10px;
+  .main.active .toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
 }
