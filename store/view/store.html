@@ -18,30 +18,24 @@
 <body>
     <!-- header -->
     <header>
-        <div class="header__container">
-            <a class="header__logo" href="../../index.html">
-                <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="logo">
-                <div class="header__textLogo">
-                    <h3>underdog</h3>
-                    <span>running store</span>
-                </div>
-            </a>
-            <div class="header__navigation">
-                <ul>
-                    <li class="navigation__home"><a href="../../index.html">home</a></li>
-                    <li class="navigation__products"><a href="#">products</a></li>
-                </ul>
+        <div id="menu-bar" class="fa fa-bars"></div>
+        <a class="header__logo" href="../../index.html">
+            <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="logo">
+            <div class="header__textLogo">
+                <h3>underdog</h3>
             </div>
-            <div class="header__account">
-                <div class="pay">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <div class="account">
-                    <a href="../../admin/view/admin.html">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                </div>
-            </div>
+        </a>
+        <nav class="navbar">
+            <a href="../../index.html">Home</a>
+            <a href="#product">Product</a>
+            <a href="../../admin/view/admin.html">Admin</a>
+            <a href="#">blog</a>
+            <a href="#contact">news</a>
+        </nav>
+        <div class="icons">
+            <a href="#"><i class="fa fa-heart"></i></a>
+            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#"><i class="fa fa-user"></i></a>
         </div>
     </header>
 
@@ -53,7 +47,7 @@
     </section>
 
     <!-- product -->
-    <section class="product">
+    <section class="product" id="product">
         <div class="product__container">
             <form class="product__search">
                 <label for="search" style="font-size: 25px;">search name shoe:</label><br>
@@ -62,36 +56,72 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
-            <div class="product__box"></div>
+            <div class="product__box">
+                <div class="box">
+                    <div class="icons">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="content">
+                        <img src="../../assets/img/product1/1.jpg" alt="">
+                        <h3>Nike Shoes</h3>
+                        <div class="price">$200 <span>$150</span></div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="Shoe Shop Logo"
-                    style="border-radius: 50%;">
-                <h3 style="text-transform: uppercase;">underdog</h3>
+        <div class="container-footer">
+            <div class="row-footer">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+                        <li><a href="#">bag</a></li>
+                        <li><a href="#">shoes</a></li>
+                        <li><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <ul>
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i> facebook</li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> instagram</a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i> twitter</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            &copy; 2023 Shoe Shop. Tất cả quyền được bảo lưu.
         </div>
     </footer>
 

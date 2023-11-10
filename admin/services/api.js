@@ -1,4 +1,4 @@
-const URL = "https://run.mocky.io/v3/37f3ce6a-cd0e-4a59-98fd-98e12d47a333";
+const URL = "https://654e9c8ccbc3253557430300.mockapi.io/account";
 async function getAPIuser() {
   try {
     const response = await fetch(URL, {

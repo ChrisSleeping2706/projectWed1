@@ -1,3 +1,4 @@
+import { createProduct, deleteProduct } from "../../admin/controller/admin.js";
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -33,7 +34,7 @@ function openBtnProduct() {
     formProductBox.style.position = "absolute";
     formProductBox.style.top = "50%";
     formProductBox.style.left = "50%";
-    formProductBox.style.transform = "translate(-50%, 50%)";
+    formProductBox.style.transform = "translate(-50%, 3%)";
     document.body.style.overflow = "hidden";
     btnAddProduct.style.zIndex = "0";
   }
@@ -66,6 +67,14 @@ btnProduct.addEventListener("click", () => {
 });
 btnUser.addEventListener("click", () => {
   openProductUser();
+});
+// create product
+let btnCreateProduct = getElement("#btn-createProduct");
+btnCreateProduct.addEventListener("click", () => {
+  createProduct();
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 });
 
 // ============ Helpers ==============

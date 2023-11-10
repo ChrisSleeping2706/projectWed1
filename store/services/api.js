@@ -1,4 +1,4 @@
-const URL = "https://run.mocky.io/v3/37f3ce6a-cd0e-4a59-98fd-98e12d47a333";
+const URL = "https://654e9c8ccbc3253557430300.mockapi.io/product";
 async function getAPIProduct() {
   try {
     const response = await fetch(URL, {
@@ -10,5 +10,38 @@ async function getAPIProduct() {
     console.log(error);
   }
 }
+async function createAPIProduct(jsonProduct) {
+  try {
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonProduct),
+    });
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    // Parse the JSON in the response
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-export { getAPIProduct };
+async function deteleAPIProduct(id) {
+  try {
+    const response = await fetch(URL, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getAPIProduct, createAPIProduct, deteleAPIProduct };

@@ -5,7 +5,7 @@ let productList = [];
 function getProducts(searchValue) {
   getAPIProduct(searchValue)
     .then((response) => {
-      productList = response.product;
+      productList = response;
       renderProduct(productList);
     })
     .catch((error) => {
@@ -19,19 +19,24 @@ const renderProduct = (productList) => {
     return (
       html +
       `
-        <div class="product__card">
-          <div class="product__img">
-            <img src="${product.img}" alt="${product.name}">
-          </div>
-          <div class="product__title">
-            <span class="product__trademark">${product.brand}</span>
-            <h5 class="product__description">${product.description}</h5>
-            <h4 class="product__price">${product.price}</h4>
-          </div>
-          <div class="product__cart">
-            <button>mua hàng <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></button>
+      <div class="box">
+        <div class="icons">
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="content">
+          <img src=${product.img} alt="">
+          <h3>${product.name}</h3>
+          <div class="price">$5000  <span>$${product.price}</span></div>
+          <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
           </div>
         </div>
+      </div>
       `
     );
   }, "");

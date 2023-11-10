@@ -1,32 +1,55 @@
-import { getAPIProduct } from "../../store/services/api.js";
+import {
+  getAPIProduct,
+  createAPIProduct,
+  deteleAPIProduct,
+} from "../../store/services/api.js";
 import { getAPIuser } from "../../admin/services/api.js";
+import { Product } from "../../store/model/shoeShop.js";
 let tableProduct = [];
 let tableUser = [];
+getTableProduct();
+getTableUser();
 function getTableProduct() {
   getAPIProduct()
     .then((result) => {
-      tableProduct = result.product;
-      console.log(tableProduct);
+      tableProduct = result;
       renderTableProduct(tableProduct);
     })
     .catch((err) => {
       console.log(err);
     });
 }
-getTableProduct();
 
 function getTableUser() {
   getAPIuser()
     .then((result) => {
-      tableUser = result.account;
+      tableUser = result;
       renderTableUser(tableUser);
-      console.log(tableUser);
     })
     .catch((err) => {
       console.log(err);
     });
 }
-getTableUser();
+
+// create product
+function createProduct() {
+  const brand = getElement("#product-brand").value;
+  const name = getElement("#product-name").value;
+  const price = getElement("#product-price").value;
+  const img = getElement("#product-image").value;
+  const description = getElement("#product-description").value;
+  console.log(img);
+  const newProduct = new Product(brand, name, description, img, price);
+  console.log(newProduct);
+  tableProduct.push(newProduct);
+  createAPIProduct(newProduct);
+}
+
+// delete product
+function deleteProduct(productID) {
+  console.log(productID);
+  deteleAPIProduct(productID);
+}
 
 function renderTableProduct(tableProduct) {
   let HTML = tableProduct.reduce((html, product) => {
@@ -37,9 +60,13 @@ function renderTableProduct(tableProduct) {
         <td>${product.id}</td>
         <td>${product.name}</td>
         <td>${product.description}</td>
-        <td>${product.price}</td>
+        <td>${product.price}$</td>
         <td>${product.brand}</td>
         <td><img src=${product.img} alt=""></td>
+        <td>
+          <button id="btn-deleteProduct" onclick="deleteProduct('${product.id}')">xóa</button>
+          <button type="button" id="btn-updateProduct">cập nhật</button>
+        </td>
       </tr>
       `
     );
@@ -48,7 +75,6 @@ function renderTableProduct(tableProduct) {
   // Hiển thị chuỗi HTML hoặc thực hiện các hành động khác dựa trên chuỗi này
   getElement("#tableProduct").innerHTML = HTML;
 }
-
 function renderTableUser(tableUser) {
   let HTML = tableUser.reduce((html, user) => {
     return (
@@ -72,7 +98,9 @@ function renderTableUser(tableUser) {
   // Hiển thị chuỗi HTML hoặc thực hiện các hành động khác dựa trên chuỗi này
   getElement("#tableUser").innerHTML = HTML;
 }
+
 // ============ Helpers ==============
 function getElement(selector) {
   return document.querySelector(selector);
 }
+export { createProduct, deleteProduct };

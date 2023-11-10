@@ -1,33 +1,35 @@
-body {
-    font-family: 'Pacifico', cursive;
-    /* 1rem = 18px */
-    /* font-size: 12px; */
-    /* không khai báo font-size thì mặc định font sẽ là 16px */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+body {
+    font-family: 'Roboto', sans-serif;
+    /* 1rem = 18px */
+    font-size: 10px;
+    /* không khai báo font-size thì mặc định font sẽ là 16px */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s linear;
 }
 
 header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    z-index: 1000000000000000;
-}
-
-.header__container {
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    padding: 1rem 9%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 0 120px;
-    padding-bottom: 5px;
+    justify-content: space-between;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
 .header__logo {
@@ -35,12 +37,12 @@ header {
     justify-content: flex-start;
     cursor: pointer;
     align-items: center;
-    width: 30%;
+    width: 10%;
     text-decoration: none;
 }
 
 .header__logo img {
-    width: 15%;
+    width: 50px;
 }
 
 .header__textLogo {
@@ -51,51 +53,46 @@ header {
     margin: 0px 0px 0px 0px;
     font-size: 25px;
     text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Courier New', Courier, monospace; */
     color: #333;
 }
 
 .header__textLogo span {
     position: absolute;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Courier New', Courier, monospace; */
     left: 245px;
     top: 45px;
     color: gray;
 }
 
-.header__navigation {
-    width: 60%;
+header .navbar a {
+    font-size: 15px;
+    color: #000;
+    margin: 0 2rem;
 }
 
-.header__navigation ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
+header .navbar a:hover {
+    color: orangered;
 }
 
-.header__navigation ul li {
-    margin: 0 70px;
+header .icons a {
+    font-size: 16px;
+    color: #000;
+    margin-left: 1.5rem;
 }
 
-.header__navigation ul li a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
+header .icons a:hover {
+    color: orangered;
 }
 
-.header__account {
-    width: 10%;
-    display: flex;
-}
-
-.header__account i {
-    font-size: 26px;
-    margin: 0 20px;
-}
-
-.header__account .account a {
-    color: black;
+#menu-bar {
+    font-size: 2rem;
+    padding: .5rem 1rem;
+    border: .1rem solid #000;
+    color: #000;
+    border-radius: .3rem;
+    cursor: pointer;
+    display: none;
 }
 
 /* carousel */
@@ -125,69 +122,100 @@ header {
 
 }
 
-.product__box {
+.product .product__box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 10px;
+    gap: 1.5rem;
 }
 
-.product__card {
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
+.product .product__box .box {
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
     text-align: center;
-    width: 20%;
-    margin: 10px;
-    /* Điều chỉnh kích thước card tùy ý */
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5;
+    flex: 1 1 20rem;
 }
 
-.product__card img {
-    width: 100%;
-    max-height: 200px;
-    /* Điều chỉnh kích thước ảnh tùy ý */
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.product__title span {
-    color: gray;
-    text-transform: uppercase;
-}
-
-.product__title h5 {
-    font-size: 16px;
-}
-
-.product__title h4 {
-    color: #9d4040;
-    font-size: 16px
-}
-
-.product__cart button {
-    width: 110px;
-    height: 35px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: 'Pacifico', cursive;
+.product .product__box .content {
+    padding: 1.5rem;
     background-color: white;
-    transition: all .5s;
-    cursor: pointer;
+    height: 100%;
 }
 
-.product__cart:hover button i {
-    transition: all .5s;
+.product .product__box .box img {
+    height: 10rem;
+    transform: rotate(-35deg);
+    margin: 4rem 1rem;
 }
 
-.product__cart:hover button {
-    border-color: white;
-    background-color: black;
-    color: white;
+.product .product__box .box:hover img {
+    transform: rotate(-35deg) scale(1.2);
 }
 
-.product__cart:hover button i {
-    color: white !important;
+.product .product__box .box .icons {
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+}
+
+.product .product__box .box .icons i {
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    color: #000;
+    border: .1rem solid #000;
+    border-radius: .5rem;
+    background: #fff;
+    margin-top: .5rem;
+}
+
+.product .product__box .box .icons {
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    top: .5rem;
+    left: -10rem;
+}
+
+.product .product__box .box:hover .icons {
+    left: 1rem;
+}
+
+.product .product__box .box .icons i:hover {
+    color: orangered;
+    color: #fff;
+}
+
+.product .product__box .box .content h3 {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.product .product__box .box .content .price {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding: 1rem 0;
+}
+
+.product .product__box .box .content .price span {
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+
+.product .product__box .box .content .stars {
+    padding-bottom: 1rem;
+}
+
+.product .product__box .box .content .stars i {
+    font-size: 1.2rem;
+    color: orangered;
 }
 
 .product__search {
@@ -219,71 +247,104 @@ header {
 
 /* footer */
 /* CSS cho phần footer */
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 60px 0;
+.container-footer {
+    max-width: 1170px;
+    margin: auto;
 }
 
-.footer-content {
+.row-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    flex-wrap: wrap;
 }
 
-.footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.footer-logo img {
-    width: 90px;
-    /* Điều chỉnh kích thước logo tùy ý */
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.footer-links ul,
-.footer-social ul {
+.row-footer ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.footer-links li,
-.footer-social li {
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.footer-links a,
-.footer-social a {
-    color: #fff;
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
 }
 
-.footer-copyright {
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
     text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
 }
 
-/* CSS cho biểu tượng mạng xã hội (điều chỉnh kích thước tùy ý) */
-.footer-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
+.footer-col .social-links a i {
+    font-size: 16px;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
 }
 
 /* nút quay về đầu trang */
