@@ -1,54 +1,87 @@
 import {
   getAPIProduct,
   createAPIProduct,
-  deteleAPIProduct,
+  deleteAPIProduct,
+  updateAPIProduct,
 } from "../../store/services/api.js";
 import { getAPIuser } from "../../admin/services/api.js";
 import { Product } from "../../store/model/shoeShop.js";
-let tableProduct = [];
-let tableUser = [];
 getTableProduct();
 getTableUser();
-function getTableProduct() {
-  getAPIProduct()
-    .then((result) => {
-      tableProduct = result;
-      renderTableProduct(tableProduct);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+let tableProduct = [];
+let tableUser = [];
+async function getTableProduct() {
+  const data = await getAPIProduct();
+  try {
+    tableProduct = data;
+    renderTableProduct(tableProduct);
+  } catch (error) {}
 }
 
-function getTableUser() {
-  getAPIuser()
-    .then((result) => {
-      tableUser = result;
-      renderTableUser(tableUser);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+async function getTableUser() {
+  const data = await getAPIuser();
+  try {
+    tableUser = data;
+    renderTableUser(tableUser);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // create product
-function createProduct() {
+async function createProduct() {
   const brand = getElement("#product-brand").value;
   const name = getElement("#product-name").value;
   const price = getElement("#product-price").value;
   const img = getElement("#product-image").value;
   const description = getElement("#product-description").value;
-  console.log(img);
   const newProduct = new Product(brand, name, description, img, price);
-  console.log(newProduct);
   tableProduct.push(newProduct);
-  createAPIProduct(newProduct);
+  try {
+    renderTableProduct(tableProduct);
+    await createAPIProduct(newProduct);
+    location.reload();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // delete product
-function deleteProduct(productID) {
-  console.log(productID);
-  deteleAPIProduct(productID);
+async function deleteProduct(productID) {
+  tableProduct = tableProduct.filter((product) => product.id !== productID);
+  try {
+    renderTableProduct(tableProduct);
+    await deleteAPIProduct(productID);
+  } catch (error) {
+    console.log(error);
+  }
+}
+// update product
+function getValueProduct(productID) {
+  let productUpdate = tableProduct.filter(
+    (product) => product.id === productID
+  );
+  getElement("#product-brand").value = productUpdate[0].brand;
+  getElement("#product-name").value = productUpdate[0].name;
+  getElement("#product-price").value = productUpdate[0].price;
+  getElement("#product-image").value = productUpdate[0].img;
+  getElement("#product-description").value = productUpdate[0].description;
+}
+async function updateProduct(productID) {
+  const brand = getElement("#product-brand").value;
+  const name = getElement("#product-name").value;
+  const price = getElement("#product-price").value;
+  const img = getElement("#product-image").value;
+  const description = getElement("#product-description").value;
+  const newProduct = new Product(brand, name, description, img, price);
+  const index = tableProduct.findIndex((product) => product.id === productID);
+  tableProduct[index] = { ...tableProduct[index], ...newProduct };
+  try {
+    renderTableProduct(tableProduct);
+    await updateAPIProduct(productID, tableProduct[index]);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderTableProduct(tableProduct) {
@@ -62,10 +95,10 @@ function renderTableProduct(tableProduct) {
         <td>${product.description}</td>
         <td>${product.price}$</td>
         <td>${product.brand}</td>
-        <td><img src=${product.img} alt=""></td>
+        <td><img src=${product.img} alt="#"></td>
         <td>
-          <button id="btn-deleteProduct" onclick="deleteProduct('${product.id}')">xóa</button>
-          <button type="button" id="btn-updateProduct">cập nhật</button>
+          <button type="button" id="btn-deleteProduct" keyProduct="${product.id}">xóa</button>
+          <button type="button" id="btn-updateProduct" keyProduct="${product.id}">cập nhật</button>
         </td>
       </tr>
       `
@@ -84,7 +117,7 @@ function renderTableUser(tableUser) {
           <td>${user.id}</td>
           <td>${user.account}</td>
           <td>${user.password}</td>
-          <td>${user.mail}</td>
+          <td>${user.email}</td>
           <td>${user.MSSV}</td>
           <td>${user.positionJob}</td>
           <td>
@@ -103,4 +136,4 @@ function renderTableUser(tableUser) {
 function getElement(selector) {
   return document.querySelector(selector);
 }
-export { createProduct, deleteProduct };
+export { createProduct, deleteProduct, updateProduct, getValueProduct };

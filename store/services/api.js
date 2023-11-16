@@ -30,18 +30,35 @@ async function createAPIProduct(jsonProduct) {
   }
 }
 
-async function deteleAPIProduct(id) {
+async function deleteAPIProduct(id) {
   try {
-    const response = await fetch(URL, {
+    const response = await fetch(`${URL}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
+    const dataDelete = response.json();
+    return dataDelete;
   } catch (error) {
     console.log(error);
   }
 }
 
-export { getAPIProduct, createAPIProduct, deteleAPIProduct };
+async function updateAPIProduct(id, updateProduct) {
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateProduct),
+    });
+    const dataUpdate = response.json();
+    return dataUpdate;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getAPIProduct, createAPIProduct, deleteAPIProduct, updateAPIProduct };
