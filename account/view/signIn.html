@@ -18,44 +18,26 @@
 <body>
     <!-- header -->
     <header>
-        <div class="header__container">
-            <a class="header__logo" href="../../index.html">
-                <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="logo">
-                <div class="header__textLogo">
-                    <h3>underdog</h3>
-                    <span>running store</span>
-                </div>
-            </a>
-            <div class="header__navigation">
-                <ul>
-                    <li class="navigation__home"><a href="../../index.html">home</a></li>
-                    <li class="navigation__products"><a href="../../store/view/store.html">products</a></li>
-                </ul>
+        <div id="menu-bar" class="fa fa-bars"></div>
+        <a class="header__logo" href="../../index.html">
+            <img src="../../assets/img/pngtree-modern-sneaker-shoe-logo-image_401565.jpg" alt="logo">
+            <div class="header__textLogo">
+                <h3>underdog</h3>
             </div>
-            <div class="header__account">
-                <div class="pay">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <div class="account">
-                    <a href="../../admin/view/admin.html">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+        </a>
     </header>
     <div class="wrapper">
         <form action="">
             <h1>login</h1>
             <div class="input-box">
-                <input type="text" placeholder="username" required>
+                <input type="text" placeholder="username" required id="account">
                 <i class="fa-solid fa-user"></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="password" required>
+                <input type="password" placeholder="password" required id="password">
                 <i class="fa-solid fa-lock"></i>
             </div>
-            <button type="submit" class="btn-login">Login</button>
+            <button type="button" class="btn-login">Login</button>
             <div class="register-link">
                 <p>
                     Chưa có tài khoản ??
@@ -64,8 +46,10 @@
                     </a>
                 </p>
             </div>
+            <div id="alertSignIn"></div>
         </form>
     </div>
+    <script type="module" src="../../admin/controller/signIn.js"></script>
 </body>
 
 </html>

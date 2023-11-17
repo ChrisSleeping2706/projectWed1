@@ -10,6 +10,18 @@ async function getAPIProduct() {
     console.log(error);
   }
 }
+async function getAPIProductById(id) {
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: "GET",
+    });
+    const data = await response.json();
+    return data; // Trả về dữ liệu từ API
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function createAPIProduct(jsonProduct) {
   try {
     const response = await fetch(URL, {
@@ -61,4 +73,10 @@ async function updateAPIProduct(id, updateProduct) {
   }
 }
 
-export { getAPIProduct, createAPIProduct, deleteAPIProduct, updateAPIProduct };
+export {
+  getAPIProduct,
+  createAPIProduct,
+  deleteAPIProduct,
+  updateAPIProduct,
+  getAPIProductById,
+};

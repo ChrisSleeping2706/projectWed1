@@ -118,7 +118,7 @@ function renderTableUser(tableUser) {
           <td>${user.account}</td>
           <td>${user.password}</td>
           <td>${user.email}</td>
-          <td>${user.MSSV}</td>
+          <td>${user.mssv}</td>
           <td>${user.positionJob}</td>
           <td>
             <button>xác nhận đơn hàng</button>

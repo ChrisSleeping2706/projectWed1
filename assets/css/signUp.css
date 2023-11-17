@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body {
     display: flex;
@@ -12,28 +12,28 @@ body {
 }
 
 * {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
 }
 
 header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    z-index: 1000000000000000;
-}
-
-.header__container {
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    padding: 1rem 9%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 0 120px;
-    padding-bottom: 5px;
+    justify-content: space-between;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
 .header__logo {
@@ -41,12 +41,12 @@ header {
     justify-content: flex-start;
     cursor: pointer;
     align-items: center;
-    width: 30%;
+    width: 10%;
     text-decoration: none;
 }
 
 .header__logo img {
-    width: 15%;
+    width: 50px;
 }
 
 .header__textLogo {
@@ -57,51 +57,26 @@ header {
     margin: 0px 0px 0px 0px;
     font-size: 25px;
     text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Courier New', Courier, monospace; */
     color: #333;
 }
 
 .header__textLogo span {
     position: absolute;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Courier New', Courier, monospace; */
     left: 245px;
     top: 45px;
     color: gray;
 }
 
-.header__navigation {
-    width: 60%;
-}
-
-.header__navigation ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.header__navigation ul li {
-    margin: 0 70px;
-}
-
-.header__navigation ul li a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Pacifico', cursive;
-}
-
-.header__account {
-    width: 10%;
-    display: flex;
-}
-
-.header__account i {
-    font-size: 26px;
-    margin: 0 20px;
-}
-
-.header__account .account a {
-    color: black;
+#menu-bar {
+    font-size: 2rem;
+    padding: .5rem 1rem;
+    border: .1rem solid #000;
+    color: #000;
+    border-radius: .3rem;
+    cursor: pointer;
+    display: none;
 }
 
 .wrapper {
@@ -141,8 +116,6 @@ header {
     margin-bottom: 30px;
 }
 
-.wrapper select {}
-
 .input-box input {
     width: 100%;
     height: 100%;
@@ -154,7 +127,7 @@ header {
 
     font-size: 20px;
     color: white;
-    padding: 20px 20px 25px 20px;
+    padding: 20px 20px 18px 20px;
 }
 
 .input-box input::placeholder {
@@ -170,7 +143,7 @@ header {
     font-size: 20px;
 }
 
-.wrapper .btn-login {
+.wrapper .btn-signUp {
     width: 100%;
     height: 45px;
     background: white;
@@ -182,4 +155,21 @@ header {
     font-size: 20px;
     color: #333;
     font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 20.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
 }

@@ -4,6 +4,8 @@ import {
   updateProduct,
   getValueProduct,
 } from "../../admin/controller/admin.js";
+
+// createUser;
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
