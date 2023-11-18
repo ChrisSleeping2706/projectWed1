@@ -3,7 +3,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     /* 1rem = 18px */
-    font-size: 10px;
+    /* font-size: 18px; */
     /* không khai báo font-size thì mặc định font sẽ là 16px */
 }
 
@@ -370,4 +370,93 @@ header .icons a:hover {
 
 #scrollTopBtn:hover {
     background-color: #282828f0;
+}
+
+/* cart */
+/* cart */
+.cartTab {
+    width: 30%;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -30%;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+}
+
+body.showCart .cartTab {
+    right: 0;
+    z-index: 1000000;
+}
+
+body.showCart .container {
+    transform: translateX(-250px);
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab button {
+    background-color: #E8BC0E;
+    border: none;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cartTab .close {
+    background-color: #eee;
+}
+
+.listCart .item img {
+    width: 100%;
+}
+
+.listCart .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.listCart .quantity span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+    width: 100px;
+}
+
+.listCart .item:nth-child(even) {
+    background-color: #eee1;
+}
+
+.listCart {
+    overflow: auto;
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0;
 }
